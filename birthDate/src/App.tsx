@@ -1,7 +1,9 @@
+import { SliderBirthDate } from "./feature/birthDate";
+
 export function App() {
   return (
     <div>
-      <h1>RevPay</h1>
+      <SliderBirthDate />
     </div>
   );
 } 
