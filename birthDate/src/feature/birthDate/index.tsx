@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useState } from "react"
 import { SliderRange, SliderThumb, SliderTrack, SliderRoot, SliderContainer, ValuesList, ValueItem } from "./styles"
 
 
 export function SliderBirthDate() {
+  // const birthDateUser = 4 
   const valuesArray = [1, 3, 5, 10, 13, 15, 25, 28]
-  const birthDateUser = 3  
 
-  const [sliderValue, setSliderValue] = useState(1);
+  const [value, setValue] = useState([0]);
 
+  const handleValueChange = (value: number[]) => {
+    setValue([valuesArray[value[0]]]);
+  };
+
+  console.log(value)
   return (
     <SliderContainer>
 
@@ -15,15 +20,17 @@ export function SliderBirthDate() {
         <SliderRoot
           className="SliderRoot"
           min={0}
-          max={7}
+          max={valuesArray.length - 1}
           step={1}
-          defaultValue={[birthDateUser]}
+          onValueChange={handleValueChange}
         >
 
         <SliderTrack className="SliderTrack">
           <SliderRange className="SliderRange" />
         </SliderTrack>
-        <SliderThumb className="SliderThumb" aria-label="Volume" />
+        <SliderThumb className="SliderThumb" aria-label="Volume">
+          {/* {value} */}
+        </SliderThumb>
 
         </SliderRoot>
 
